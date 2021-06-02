@@ -16,12 +16,15 @@ const list = new ListTamplate(ul)
 
 form.addEventListener('submit', (e:Event) => {
     e.preventDefault()
+
+    let values: [string, string, number]
+    values = [toForm.value, details.value, amount.valueAsNumber]
     
     let doc : HasFormatter
     if(type.value === 'invoice') {
-        doc = new Invoice(toForm.value, details.value, amount.valueAsNumber)
+        doc = new Invoice(...values)
     }else {
-        doc = new Payment(toForm.value, details.value, amount.valueAsNumber)
+        doc = new Payment(...values)
     }
 
     list.render(doc, type.value, 'end')

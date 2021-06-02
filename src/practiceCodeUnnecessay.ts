@@ -98,6 +98,7 @@ const circ = (diameter: number) => {
 
 console.log(circ(3))
 
+
 let mixed:(string|number|boolean)[] = []
 
 mixed.push('rafi')
